@@ -8,6 +8,35 @@ use function Psy\debug;
 
 class KafkaConsumer
 {
+//    public function getVideo(){
+//
+//        $connectionFactory = new RdKafkaConnectionFactory([
+//            'global' => [
+//                'group.id' => 'qqq',
+//                'metadata.broker.list' => '89.108.99.73:9092',
+//                'enable.auto.commit' => 'false',
+//            ],
+//            'topic' => [
+//                'auto.offset.reset' => 'beginning',
+//            ],
+//        ]);
+//
+//     //   dd(json_encode($connectionFactory));
+//
+//        $context = $connectionFactory->createContext();
+//
+//    //    dd(json_encode($context));
+//
+//        $fooQueue = $context->createQueue('foo');
+//
+//        $consumer = $context->createConsumer($fooQueue);
+//
+//        $message = $consumer->receive();
+//
+//        Log::debug(json_encode($message));
+//
+//        $consumer->acknowledge($message);
+//    }
 
     public function getVideo(){
         $conf = new \RdKafka\Conf();
