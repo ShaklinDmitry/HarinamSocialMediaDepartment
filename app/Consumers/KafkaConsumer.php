@@ -11,6 +11,7 @@ class KafkaConsumer
 
     public function getVideo()
     {
+
         $conf = new \RdKafka\Conf();
 
 // Set the group id. This is required when storing offsets on the broker
