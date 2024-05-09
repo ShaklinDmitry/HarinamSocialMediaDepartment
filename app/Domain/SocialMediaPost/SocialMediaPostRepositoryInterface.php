@@ -2,6 +2,8 @@
 
 namespace App\Domain\SocialMediaPost;
 
+use App\Domain\SocialMediaPost\ValueObjects\SocialMediaPostId;
+
 interface SocialMediaPostRepositoryInterface
 {
     /**
@@ -9,6 +11,12 @@ interface SocialMediaPostRepositoryInterface
      * @return mixed
      */
     public function addSocialMediaPost(SocialMediaPost $socialMediaPost): void;
+
+    /**
+     * @param SocialMediaPostId $socialMediaPostId
+     * @return SocialMediaPost
+     */
+    public function getSocialMediaPost(SocialMediaPostId $socialMediaPostId): SocialMediaPost;
 
     /**
      * @return SocialMediaPostId

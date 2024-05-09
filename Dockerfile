@@ -25,7 +25,8 @@ RUN apt-get update \
         unzip \
         nano \
         supervisor \
-        sudo
+        sudo \
+        librdkafka-dev
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -35,11 +36,16 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN docker-php-ext-install mbstring exif pcntl bcmath gd sockets zip
 RUN docker-php-ext-install pgsql pdo_pgsql
 
+RUN pecl install rdkafka \
+    && docker-php-ext-enable rdkafka
+
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 #COPY ./laravel-worker.conf "/etc/supervisor/conf.d/"
-#COPY ./laravel-worker2.conf "/etc/supervisor/conf.d/"
+#COPY ./laravel-worker1.conf "/etc/supervisor/conf.d/"
+
+COPY ./kafka.ini "/usr/local/etc/php/conf.d"
 
 # Create system user to run Composer and Artisan Commands
 RUN useradd -G www-data,root -u $uid -d /home/$user $user

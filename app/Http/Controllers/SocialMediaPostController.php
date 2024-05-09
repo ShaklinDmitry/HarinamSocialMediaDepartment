@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SocialMediaPostRequest;
 use App\Services\DTOs\SocialMediaPostDTO;
-use App\Services\SocialMediaDepartmentServiceInterface;
+use App\Services\PostServiceInterface;
 use Illuminate\Http\Request;
 
 class SocialMediaPostController extends Controller
 {
     /**
-     * @param SocialMediaDepartmentServiceInterface $socialMediaDepartmentService
+     * @param PostServiceInterface $socialMediaDepartmentService
      */
-    public function __construct(private SocialMediaDepartmentServiceInterface $socialMediaDepartmentService)
+    public function __construct(private PostServiceInterface $socialMediaDepartmentService)
     {
     }
 

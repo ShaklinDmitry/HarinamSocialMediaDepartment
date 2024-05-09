@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\SocialMediaPost;
+namespace App\Domain\SocialMediaPost\ValueObjects;
 
 final class PostText
 {

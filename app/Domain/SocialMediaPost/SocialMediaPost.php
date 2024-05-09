@@ -2,6 +2,10 @@
 
 namespace App\Domain\SocialMediaPost;
 
+use App\Domain\SocialMediaPost\ValueObjects\PostText;
+use App\Domain\SocialMediaPost\ValueObjects\SocialMediaName;
+use App\Domain\SocialMediaPost\ValueObjects\SocialMediaPostId;
+
 class SocialMediaPost
 {
 
@@ -14,4 +18,5 @@ class SocialMediaPost
     {
 
     }
+
 }
