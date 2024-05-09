@@ -9,7 +9,9 @@ use function Psy\debug;
 class KafkaConsumer
 {
 
-    public function getVideo(){
+    public function getVideo()
+    {
+
         $conf = new \RdKafka\Conf();
 
 // Set the group id. This is required when storing offsets on the broker
@@ -40,9 +42,11 @@ class KafkaConsumer
 // Start consuming partition 0
         $topic->consumeStart(0, RD_KAFKA_OFFSET_STORED);
 
-        while (true) {
-            $message = $topic->consume(0, 120*10000);
-            switch ($message->err) {
+        while (true)
+        {
+            $message = $topic->consume(0, 120 * 10000);
+            switch ($message->err)
+            {
                 case RD_KAFKA_RESP_ERR_NO_ERROR:
                     Log::debug(json_encode($message));
                     var_dump($message);
